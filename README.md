@@ -1,7 +1,9 @@
 ESES
 ====
 
-Amazon SES Component for Yii
+Amazon SES Component for Yii.
+
+The code was modified from [orderingdisorder.com](http://www.orderingdisorder.com/aws/ses/)
 
 
 ###Install
