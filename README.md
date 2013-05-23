@@ -23,8 +23,8 @@ Then, in your main.php config, add this code:
 		'class'=>'ext.ESES.ESES',
 		'access_key'=>'xxxxxxxxxxxxxxx',
 		'secret_key'=>'xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-		'host'=>'email-smtp.us-east-1.amazonaws.com',
-		//Might be this email.us-east-1.amazonaws.com
+		'host'=>'email.us-east-1.amazonaws.com',
+		//Might be this email-smtp.us-east-1.amazonaws.com
 	)
 )
 ```
