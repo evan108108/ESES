@@ -89,7 +89,7 @@ Then, in your main.php config, add this code:
 	$result = Yii::app()->ses->sendRaw($message);
 ```
 
-####Verify Email Address
+####Other Actions
 ```php
 	Yii::app()->ses->verifyEmailAddress('user@example.com');
 	
