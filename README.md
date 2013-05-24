@@ -56,6 +56,39 @@ Then, in your main.php config, add this code:
 	*/
 ```
 
+####Sending Raw Email With Attachments
+```php
+	$dest = "recipient@example.com';
+	$src = "user@example.com;
+	$message= "To: ".$dest."\n";
+	$message.= "From: ".$src."\n";
+	$message.= "Subject: Example SES mail (raw)\n";
+	$message.= "MIME-Version: 1.0\n";
+	$message.= 'Content-Type: multipart/mixed; boundary="aRandomString_with_signs_or_9879497q8w7r8number"';
+	$message.= "\n\n";
+	$message.= "--aRandomString_with_signs_or_9879497q8w7r8number\n";
+	$message.= 'Content-Type: text/plain; charset="utf-8"';
+	$message.= "\n";
+	$message.= "Content-Transfer-Encoding: 7bit\n";
+	$message.= "Content-Disposition: inline\n";
+	$message.= "\n";
+	$message.= "Dear new tester,\n\n";
+	$message.= "Attached is the file you requested.\n";
+	$message.= "\n\n";
+	$message.= "--aRandomString_with_signs_or_9879497q8w7r8number\n";
+	$message.= "Content-ID: \<77987_SOME_WEIRD_TOKEN_BUT_UNIQUE_SO_SOMETIMES_A_@domain.com_IS_ADDED\>\n";
+	$message.= 'Content-Type: application/zip_code; name="myfile.zip"';
+	$message.= "\n";
+	$message.= "Content-Transfer-Encoding: base64\n";
+	$message.= 'Content-Disposition: attachment; filename="myfile.zip"';
+	$message.= "\n";
+	$message.= base64_encode(file_get_contents("images/myfile.zip"));
+	$message.= "\n";
+	$message.= "--aRandomString_with_signs_or_9879497q8w7r8number--\n";
+
+	$result = Yii::app()->ses->sendRaw($message);
+```
+
 ####Verify Email Address
 ```php
 	Yii::app()->ses->verifyEmailAddress('user@example.com');
@@ -63,6 +96,10 @@ Then, in your main.php config, add this code:
 	Yii::app()->ses->deleteVerifiedEmailAddress('user@example.com');
 	
 	Yii::app()->ses->listVerifiedEmailAddresses();
+	
+	Yii::app()->ses->getSendQuota();
+	
+	Yii::app()->ses->getSendStatistics();
 ```
 
 ####Your IAM user policy will need to look something like this if you want to have access to all of these methods:
