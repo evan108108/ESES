@@ -65,3 +65,37 @@ Then, in your main.php config, add this code:
 	
 	Yii::app()->ses->listVerifiedEmailAddresses();
 ```
+
+####Your IAM user policy will need to look something like this if you want to have access to all of these methods:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ses:SendRawEmail",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ses:SendEmail",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ses:ListVerifiedEmailAddresses",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ses:VerifyEmailAddress",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ses:DeleteVerifiedEmailAddress",
+      "Resource": "*"
+    }
+  ]
+}
+```
