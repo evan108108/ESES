@@ -58,7 +58,7 @@ Then, in your main.php config, add this code:
 
 ####Sending Raw Email With Attachments
 ```php
-	$dest = "recipient@example.com';
+	$dest = "recipient@example.com";
 	$src = "user@example.com";
 	$message= "To: ".$dest."\n";
 	$message.= "From: ".$src."\n";
