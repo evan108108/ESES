@@ -4,7 +4,7 @@ class ESES Extends CApplicationComponent
 {
 	public $access_key;
 	public $secret_key;
-	public $host; //email-smtp.us-east-1.amazonaws.com or email.us-east-1.amazonaws.com not sure which
+	public $host; //email.us-east-1.amazonaws.com
 	public $_ESimpleEmailService;
 
 	public function init() {
