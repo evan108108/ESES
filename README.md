@@ -24,7 +24,6 @@ Then, in your main.php config, add this code:
 		'access_key'=>'xxxxxxxxxxxxxxx',
 		'secret_key'=>'xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 		'host'=>'email.us-east-1.amazonaws.com',
-		//Might be this email-smtp.us-east-1.amazonaws.com
 	)
 )
 ```
