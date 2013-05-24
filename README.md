@@ -38,6 +38,7 @@ Then, in your main.php config, add this code:
 		->setFrom('user@example.com')
 		->setSubject('Hello, world!')
 		->setMessageFromString($text, $html) //Pass a string body and html body
+		//->setMessageFromURL($texturl, $htmlurl)
 		->addCC(array('kelly@example.com', 'ryan@example.com'))
 		->addBCC('michael@example.com')
 		->addReplyTo('andy@example.com')
