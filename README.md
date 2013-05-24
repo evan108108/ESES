@@ -131,6 +131,16 @@ Then, in your main.php config, add this code:
       "Effect": "Allow",
       "Action": "ses:DeleteVerifiedEmailAddress",
       "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ses:GetSendStatistics",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ses:GetSendQuota",
+      "Resource": "*"
     }
   ]
 }
