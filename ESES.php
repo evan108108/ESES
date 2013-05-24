@@ -19,6 +19,6 @@ class ESES Extends CApplicationComponent
 
 	public function __call($name, $arguments)
 	{
-		call_user_func_array(array($this->_ESimpleEmailService, $name), $arguments);
+		return call_user_func_array(array($this->_ESimpleEmailService, $name), $arguments);
 	}
 }
