@@ -339,6 +339,29 @@ class ESimpleEmailService
 		$response['RequestId'] = (string)$rest->body->ResponseMetadata->RequestId;
 		return $response;
 	}
+	
+	public function sendRaw($raw_email)
+	{
+		$rest = new ESimpleEmailServiceRequest($this, 'POST');
+		$rest->setParameter('Action', 'SendRawEmail');
+		$raw_email =  base64_encode($raw_email);
+
+		$rest->setParameter('RawMessage.Data', $raw_email);
+
+		$rest = $rest->getResponse();
+
+		if($rest->error === false && $rest->code !== 200) {
+			$rest->error = array('code' => $rest->code, 'message' => 'Unexpected HTTP status');
+		}
+		if($rest->error !== false) {
+			$this->__triggerError('SendRawEmail', $rest->error);
+			return false;
+		}
+
+		$response['MessageId'] = (string)$rest->body->SendRawEmailResult->MessageId;
+		$response['RequestId'] = (string)$rest->body->ResponseMetadata->RequestId;
+		return $response;
+	}
 
 	/**
 	* Trigger an error message
