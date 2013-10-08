@@ -83,6 +83,7 @@ final class ESimpleEmailServiceMessage {
 
 	function setReturnPath($returnpath) {
 		$this->returnpath = $returnpath;
+		return $this;
 	}
 
 	function setSubject($subject) {
